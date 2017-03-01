@@ -1,0 +1,88 @@
+
+#include "stdafx.h"
+#include <conio.h>
+#include <clocale>
+//#include <time.h>
+#include <cstdlib>
+
+
+
+
+void printa (int a[], int n)
+{
+	putch('\n');
+	for (int i=0; i<n; i++)
+	    printf ("%d ", a[i]);
+}
+int amax (int* a, int n, int* imaxa)
+{
+	int max=a[*imaxa=0];
+	for (int i=0; i<n; i++)
+	    if (a[i]>max)
+	    {
+	    	max=a[i];
+	    	*imaxa=i;
+	    }
+	 return (max);
+}
+int amin (int* a, int n, int* imina)
+{
+	int max=a[*imina=0];
+	for (int i=0; i<n; i++)
+	    if (a[i]<=max)
+	    {
+	    	max=a[i];
+	    	*imina=i;
+	    }
+	 return (max);
+}
+void swap (int* max, int* min)
+{
+	int t=*max;
+	*max=*min;
+	*min=t;
+}
+void sorta (int* a, int n)
+{
+	int t;
+	for (int i=0; i<n; i++)
+		for (int j=i+1; j<n; j++)
+			if (a[i]>a[j])
+			{
+				t=a[j];
+				a[j]=a[i];
+				a[i]=t;
+			}
+}
+int* seta (int n, FILE* f1)
+{
+	int *a=new int[n];
+	for (int i=0; i<n; i++)
+		fscanf (f1, "%d", &a[i]);
+	return a;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	setlocale (LC_ALL, "");
+	FILE* f1=fopen ("f1.txt", "r");
+	if (f1==NULL)
+	{
+		printf ("Файл не существует");
+		return 1;
+	}
+	int n, *a, max, min, imaxa, imina;
+	fscanf (f1 ,"%d", &n);
+	a=seta (n, f1);
+	fclose (f1);
+	printa (a, n);
+	max=amax (a, n, &imaxa);
+	min=amin (a, n, &imina);
+	printf ("\nПервый максимальный: a[%d]=%d\nПоследний минимальный: a[%d]=%d",imaxa+1, max, imina+1, min);
+	swap (&max, &min);
+	printf ("\nПоменяли местами: max=%d, min=%d", max, min);
+	//lab2b();
+	getch();
+	return 0;
+}
+
