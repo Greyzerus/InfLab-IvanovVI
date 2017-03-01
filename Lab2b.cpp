@@ -25,7 +25,7 @@ int** SetC (int*n, int*m)
 	{
 		c[i]=new int[*m];
 		for (int j=0; j<*m; j++)
-			fscanf (f2, "%d", c[i]+j);
+			fscanf (f2, "%d",&c[i][j]);
 	}
 	return (c);
 }
@@ -65,35 +65,56 @@ int MaxInC (int** c, int n, int m)
 }
 //Поменять местами строки с наибольшим и наименьшим количеством максимальных местами
 void SwapStringsWithMostMax (int** c, int n, int m)
-{	int nmax=1, max=c[0][0], cmax=1, maxsimstr=0;
-	int nmin=1, min=c[0][0], cmin=1, minsimstr=0;
+{	int nmax=1, max=c[0][0], cmax=1, maxsimstr=0, maxi=0;
+	int nmin=1, min=c[0][0], cmin=1, minsimstr=0, mini=0;
+ char* _t;
 
 	for (int i=0; i<n; i++)
 	{	 //Считаем мах в строке, или ищем новые
 		for (int j = i ? 0 : 1 ; j<n; j++) // если i != 0, то j=0
 		{
-			if (c[i][j]>=max)
+			if (c[i][j]>=max){
 				if (c[i][j]==max)
 					cmax++;
 				else
 					nmax=0, nmin=1, cmax=1;
-
+			}
 		}
 		/* обрабатываем максимум */
 		if (cmax=>nmax)
 		{
-			cmax==nmax;
+			if (cmax==nmax)
 			maxsimstr++;
+	
 		}
 		else
 		{
 			nmax=cmax;
 			maxsimstr=0;
+			maxi=i;
 		}
-		else if (cmax<nmin)
-			nmin
-		/*обрабатываем минимум */
+		else if (cmax<=nmin)
+		{
+			if (cmax==nmin)
+				minsimstr++;
+			else 
+			{
+				nmin = cmax;
+				minsimstr=0;
+				mini = i;
+			}
+		}
+		/*обрабатываем минимум */	
 	}
+ if (nmin != nmax && maxi != mini && !maxsimstr && !minsimstr )
+ {
+	_t=c[mini];
+        c[mini]=c[maxi];
+	 c[maxi]=_t;
+		 PrintC(c, n, m);
+ }
+ else puts ("Строку вывести невозможно ");
+}
 
 
 
