@@ -1,0 +1,4 @@
+Ivanov 2016 5 5 4
+Petrov 2014 4 5 3
+Sidorov 2015 4 3 4
+Troyantsev 2018 3 3 2
