@@ -1,0 +1,6 @@
+Moscow 10 Petersburg 23 80 500
+Moscow 14 Petersburg 23 80 900
+Moscow 12 Petersburg 23 80 700
+Kazan 6 Lipetsk 28 85 1500
+Balashikha 7 Reutovo 8 125 50
+Ekaterinburg 14 Asbest 18 95 80

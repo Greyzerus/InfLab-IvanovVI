@@ -109,7 +109,8 @@ std::ostream& operator<< (std::ostream &os, taxi& _taxi)
 {
 		os << _taxi.departure << " : " << _taxi.departure_time << "\n"
 		<< _taxi.arrival << " : " << _taxi.arrival_time << "\n"
-		<< "There is "<< _taxi.seats << " seats with total cost " << _taxi.total_cost() << std::endl;
+		<< "There is "<< _taxi.seats << " seats with cost " << _taxi.cost 
+		<< " and total "<< _taxi.total_cost() << std::endl << std::endl;
 	return os;
 }
 
@@ -158,8 +159,9 @@ int _tmain(int argc, _TCHAR* argv[])
 		Taxis.push_back(buf);
 		cout << Taxis[taxis_count++];
 	}
-	infile.close();	
-
+	infile.close();
+	
+	system ("pause");
 	return 0;
 }
 
