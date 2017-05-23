@@ -1,0 +1,19 @@
+potion
+Health_potion
+0.5 0.6 25 10
+
+potion
+Mana_potion
+0.5 0.6 30 4
+
+ammo
+7.62x39
+0.010 0.005 4 90 7.62 0.6
+
+weapon
+m16
+4 7 1500 2 60 3
+
+weapon
+AK47
+3 6 1200 3 78 3.5
